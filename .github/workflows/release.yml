@@ -20,7 +20,12 @@ jobs:
           node-version: 24
           registry-url: https://registry.npmjs.org
       - run: npm ci
-      - run: npm publish --provenance --access public
+      # Version déjà publiée à la main (premier publish depuis le poste) : rien à faire.
+      - name: Déjà publiée ?
+        id: published
+        run: echo "done=$(npm view "$(node -p "require('./package.json').name")@${GITHUB_REF_NAME#v}" version 2>/dev/null)" >> "$GITHUB_OUTPUT"
+      - if: steps.published.outputs.done == ''
+        run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
