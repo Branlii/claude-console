@@ -45,7 +45,7 @@ if [ -f package-lock.json ]; then
   if [ "$want" != "$have" ]; then
     echo "Installation des dépendances (npm ci)"
     npm ci --omit=dev --no-audit --no-fund
-    printf '%s' "$want" > node_modules/.lock-sha
+    mkdir -p node_modules && printf '%s' "$want" > node_modules/.lock-sha
   fi
 fi
 
