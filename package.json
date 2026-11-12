@@ -1,0 +1,26 @@
+{
+  "name": "@branli/claude-console",
+  "version": "0.1.0",
+  "description": "Console Claude Code intégrée à une app web (PWA) : conversations claude -p, cartes de permission, voix, dictée, connexion, synchro git.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Branlii",
+  "repository": { "type": "git", "url": "git+https://github.com/Branlii/claude-console.git" },
+  "engines": { "node": ">=24" },
+  "exports": {
+    "./server": { "types": "./types/server/index.d.ts", "default": "./server/index.js" },
+    "./client/*": "./client/*",
+    "./package.json": "./package.json"
+  },
+  "files": ["server", "client", "tools", "types", "README.md", "LICENSE"],
+  "scripts": {
+    "test": "node --test",
+    "check": "tsc -p .",
+    "types": "tsc -p tsconfig.types.json",
+    "prepublishOnly": "npm run check && npm test && npm run types"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}

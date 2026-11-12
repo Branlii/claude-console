@@ -1,0 +1,9 @@
+{
+  "name": "Exemple",
+  "short_name": "Exemple",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#2f6f5e",
+  "background_color": "#ffffff",
+  "icons": []
+}

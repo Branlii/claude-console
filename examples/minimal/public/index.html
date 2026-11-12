@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Exemple</title>
+  <meta name="theme-color" content="#2f6f5e">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/_claude/claude-panel.css">
+  <style>
+    html, body { height: 100%; margin: 0; }
+    body { display: flex; flex-direction: column; height: 100dvh; background: var(--bg); color: var(--text); font-family: var(--font); }
+    header { padding: 12px 16px; font-weight: 600; border-bottom: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+  <header>Exemple</header>
+  <claude-panel lang="fr-FR"></claude-panel>
+  <script type="module" src="/_claude/claude-panel.js"></script>
+  <script type="module">
+    document.addEventListener('claude:refresh', () => console.log('Fichiers mis à jour par git pull'));
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
+  </script>
+</body>
+</html>
