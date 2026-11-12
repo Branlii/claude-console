@@ -58,7 +58,7 @@ listen();
 
 - Attributs : `lang` (défaut `fr-FR`), `server-voice` (motif de la voix Piper préférée), `layout-buttons` (agrandir / replier).
 - Points d'accroche : `renderMarkdown(md)`, `slashArgs(skill)` (valeurs après `/skill`), `toast(msg)`, `messages` (libellés, fusionnés avec les défauts).
-- Méthodes : `run(skill, arg?)` lance un skill en nouvelle session ; `setMaximized(max)` met à jour le bouton agrandir.
+- Méthodes : `run(skill, arg?)` lance un skill en nouvelle session ; `send(text, { spoken? })` envoie un message (réponse à la session en cours, sinon nouvelle conversation ; nouveaux essais pendant un redémarrage du serveur) ; `setMaximized(max)` met à jour le bouton agrandir.
 - Événements (remontent au `document`) : `claude:state` (état), `claude:refresh` (fichiers mis à jour par git pull), `claude:show` (après un envoi), `claude:close`, `claude:toggle-max`.
 
 ## Service worker
